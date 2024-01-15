@@ -28,50 +28,57 @@ public class Explorador {
         this.posicionActual = posicionActual;
     }
 
-    //---- Explorador check y Moverse ----
+    //---- Explorar , check y Moverse ----
 
-        /* Comantario para no estar cambiando entre paginas :
-        checkPosicion: Se revisará la posición actual del explorador.
-        Se está en una trampa (por lo tanto muere y se acaba el juego)
-        devuelve un 1, si está en el tesoro (gana y se acaba el juego) devuelve
-        un 2. En otro caso devuelve un 0.
- */
+    /* Comantario para no estar cambiando entre paginas :
+    Explorar: Explorador revisará las “casillas”
+    adyacentes (la de arriba, la de abajo, la de la
+    izquierda y la de la derecha). Y devolverá el
+    número de casillas con trampas. Por lo tanto,
+    devolverá un número entre 0 y 4.
+    Cada vez que se mueva el explorador, se deberá
+    revisar la posición nueva, para discernir si ha
+    caído en una trampa o a encontrado el tesoro.*/
+
+    public int explorar(Mapa mapa) {
+        return 0 ;
+    }
+
+
+
+    /* Comentario para no estar cambiando entre páginas:
+    checkPosicion: Se revisará la posición actual del explorador.
+    Se está en una trampa (por lo tanto muere y se acaba el juego)
+    devuelve un 1, si está en el tesoro (gana y se acaba el juego) devuelve
+    un 2. En otro caso devuelve un 0.*/
 
     public int checkPosicion(Mapa mapa) {
         return this.posicionActual;
     }
 
-    public int revisarPosicion(int posicionActual) {
-        Mapa Mapa = null; //No se si estará bien poner esto.
+    public int revisarPosicionActual(int posicionActual) {
+        Mapa Mapa = null;
         if (posicionActual == 0) {
-            System.out.println("Estás en una posición segura. No pasa nada.");
             return 0; // No pasa nada
         } else if (posicionActual == this.checkPosicion(Mapa)) {
-            System.out.println("¡Caíste en una trampa! ¡Perdiste!");
             return 1; // El jugador pierde
         } else {
-            System.out.println("¡Te salvaste de una trampa!¡Felicidades!");
             return 2; // El jugador gana
         }
     }
 
-    /* Comantario para no estar cambiando entre paginas :
+    /* Comentario para no estar cambiando entre páginas:
     Moverse: Se modificará la posición actual del explorador. El parámetro de entrada
     será un valor entero entre 1 y 4 (fijarse en las constantes de la clase). */
 
-    public void moserse() {
-        // Declaración e inicialización de la variable posicion
+    public void moverse() {
+        // Declaración e inicialización de la variable direccion
         int direccion = 0;
 
-        // Imprimir el valor actual de posicion
-        System.out.println("Valor actual de posicion: " + direccion);
-
-        // Cambiar el valor de posicion a un número aleatorio entre 1 y 100
+        // Cambiar el valor de direccion a un número aleatorio entre 1 y 4
         Random random = new Random();
         int nuevoValor = random.nextInt(4) + 1;
         direccion = nuevoValor;
-
-        // Imprimir el nuevo valor de posicion
-        System.out.println("Nuevo valor de posicion: " + direccion);
     }
+
 }
