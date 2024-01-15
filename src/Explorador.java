@@ -30,9 +30,12 @@ public class Explorador {
 
     //---- Explorador check y Moverse ----
 
-    public int Explorar(Mapa mapa) {
-        return 0;
-    }
+        /* Comantario para no estar cambiando entre paginas :
+        checkPosicion: Se revisará la posición actual del explorador.
+        Se está en una trampa (por lo tanto muere y se acaba el juego)
+        devuelve un 1, si está en el tesoro (gana y se acaba el juego) devuelve
+        un 2. En otro caso devuelve un 0.
+ */
 
     public int checkPosicion(Mapa mapa) {
         return this.posicionActual;
