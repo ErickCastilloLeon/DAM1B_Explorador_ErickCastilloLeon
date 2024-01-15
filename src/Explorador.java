@@ -42,7 +42,7 @@ public class Explorador {
         if (posicionActual == 0) {
             System.out.println("Estás en una posición segura. No pasa nada.");
             return 0; // No pasa nada
-        } else if (posicionActual == this.checkPosicion()) {
+        } else if (posicionActual == this.checkPosicion(Mapa)) {
             System.out.println("¡Caíste en una trampa! ¡Perdiste!");
             return 1; // El jugador pierde
         } else {
