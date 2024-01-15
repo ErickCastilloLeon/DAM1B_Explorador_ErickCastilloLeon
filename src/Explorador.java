@@ -39,6 +39,7 @@ public class Explorador {
     }
 
     public int revisarPosicion(int posicionActual) {
+        Mapa Mapa = null; //No se si estará bien poner esto.
         if (posicionActual == 0) {
             System.out.println("Estás en una posición segura. No pasa nada.");
             return 0; // No pasa nada
