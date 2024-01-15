@@ -9,8 +9,9 @@ public class Explorador {
 
     //---- Explorador y Nombre ----
 
-    public Explorador (String nombre){
-
+    public Explorador(String nombre) {
+        this.nombre = nombre;
+        this.posicionActual = 0;
     }
 
     public String getNombre() {
@@ -20,29 +21,21 @@ public class Explorador {
     //---- get y set de PosicionActual ----
 
     public int getPosicionActual() {
-        int Posicion = 0;
-        return posicionActual = Posicion ;
+        return posicionActual;
     }
 
     public void setPosicionActual(int posicionActual) {
         this.posicionActual = posicionActual;
     }
 
-    //---- Explorar, check y Moverse ----
+    //---- Explorador check y Moverse ----
 
     public int Explorar(Mapa mapa) {
-
-        /* int p = mapa.obtenerElementosExplorados();
-        return elementosExplorados; */
         return 0;
     }
 
-    public JuegoCheckpoint(Mapa mapa) {
-        this.Mapa = mapa;
-    }
-
-    public void checkPosicion() {
-        Mapa.osicionTrampa(3);
+    public int checkPosicion(Mapa mapa) {
+        return this.posicionActual;
     }
 
     public int revisarPosicion(int posicionActual) {
@@ -53,7 +46,7 @@ public class Explorador {
             System.out.println("¡Caíste en una trampa! ¡Perdiste!");
             return 1; // El jugador pierde
         } else {
-            System.out.println("¡Felicidades! ¡Salvaste la trampa! ¡Ganaste!");
+            System.out.println("¡Te salvaste de una trampa!¡Felicidades!");
             return 2; // El jugador gana
         }
     }
