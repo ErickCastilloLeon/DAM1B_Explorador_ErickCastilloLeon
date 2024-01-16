@@ -41,7 +41,34 @@ public class Explorador {
     caído en una trampa o a encontrado el tesoro.*/
 
     public int explorar(Mapa mapa) {
-        return 0 ;
+        int trampasEncontradas = 0;
+
+        // Obtener la posición actual del explorador
+        int filaActual = mapa.posTesoro.getCoordenadaFila();
+        int columnaActual = mapa.posTesoro.getCoordenadaFila();
+
+        // Verificar la casilla superior
+        if (filaActual > 0) {
+            trampasEncontradas += mapa.po(filaActual - 1, columnaActual) ? 1 : 0;
+        }
+
+        // Verificar la casilla inferior
+        if (filaActual < mapa.posTesoro.getCoordenadaCol() - 1) {
+            trampasEncontradas += mapa.trampa(filaActual + 1, columnaActual) ? 1 : 0;
+        }
+
+        // Verificar la casilla izquierda
+        if (columnaActual > 0) {
+            trampasEncontradas += mapa.trampa(filaActual, columnaActual - 1) ? 1 : 0;
+        }
+
+        // Verificar la casilla derecha
+        if (columnaActual < mapa.posTesoro.getCoordenadaCol() - 1) {
+            trampasEncontradas += mapa.trampa(filaActual, columnaActual + 1) ? 1 : 0;
+        }
+
+        // Limitar el resultado a estar entre 0 y 4
+        return Math.min(4, trampasEncontradas);
     }
 
 
